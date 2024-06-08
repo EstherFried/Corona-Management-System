@@ -1,0 +1,30 @@
+<div class="member-card" *ngIf="member">
+    <div class="member-details">
+        <p>Full Name: {{ member.full_name }}</p>
+        <p>ID Number: {{ member.id_number }}</p>
+
+        <div *ngIf="showDetails">
+            <p>Date of Birth: {{ member.date_of_birth | date: 'dd/MM/yyyy' }}</p>
+            <p>Phone: {{ member.phone }}</p>
+            <p>Mobile Phone: {{ member.mobile_phone }}</p>
+            <p>Address: {{ member.address.city }}, {{ member.address.street }} {{ member.address.number }}</p>
+            <p>Positive Result Date: {{ member.positive_result_date | date: 'dd/MM/yyyy' }}</p>
+            <p>Recovery Date: {{ member.recovery_date | date: 'dd/MM/yyyy' }}</p>
+            <div *ngIf="member.vaccinations && member.vaccinations.length > 0">
+                <p>Vaccinations:</p>
+                <ul>
+                    <li *ngFor="let vaccination of member.vaccinations">
+                        <p>Vaccine Date: {{ vaccination.date | date: 'dd/MM/yyyy' }}</p>
+                        <p>Vaccine Manufacturer: {{ vaccination.manufacturer }}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button (click)="openCloseDetails()">{{showDetails?'less details':'more details'}}</button>
+        <button (click)="deleteMember(member.id_number)">delete</button>
+        <button (click)="updateMember()">update</button>
+    </div>
+    <app-member-form [member]="member" [newMember]="false" [showForm]="showUpdateForm"
+        (memberToSave)="saveMemberDetails($event)" (closeFormEvent)="closeUpdateForm()"></app-member-form>
+</div>

@@ -1,0 +1,20 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 300px;
+    height: auto;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: auto;
+}
+.cacc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.invalid-field {
+    border-color: red; 
+  }
+  

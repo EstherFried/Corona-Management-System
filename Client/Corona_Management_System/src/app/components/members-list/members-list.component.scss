@@ -1,0 +1,21 @@
+// .container{
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: wrap;
+// }
+
+.members-list {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+//     .member-card {
+//         border: 1px solid #ccc;
+//         border-radius: 10px;
+//         padding: 10px;
+//         margin-bottom: 20px;
+//     }
+// }

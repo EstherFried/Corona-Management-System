@@ -1,0 +1,13 @@
+<div class="members-list">
+    <h2>Members</h2>
+    <button (click)="newMemberForm()">add new member</button>
+    <app-member-form [member]="member" [newMember]="true" [showForm]="showAddForm" (memberToSave)="addNewMember($event)"
+        (closeFormEvent)="closeMemberForm()"></app-member-form>
+
+    <div>
+        <div class="member" *ngFor="let member of allMembers; let i = index">
+            <app-member *ngIf="member.id_number" (updatedMemberToSave)="updateMember($event)" [member]="member"
+                (memberIdToDelete)="deleteMember($event)"></app-member>
+        </div>
+    </div>
+</div>

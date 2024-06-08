@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@angular/forms": "^17.3.1",
+    "primeng": "^17.12.0"
+  }
+}

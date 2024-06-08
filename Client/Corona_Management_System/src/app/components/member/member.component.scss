@@ -1,0 +1,20 @@
+.member-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .member-details p {
+    margin: 5px 0;
+  }
+  
+  .member-details button {
+    margin-right: 10px;
+  }
+  
+  .member-details button:last-child {
+    margin-right: 0;
+  }
+  

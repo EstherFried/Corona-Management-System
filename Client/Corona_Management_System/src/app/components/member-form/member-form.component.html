@@ -1,0 +1,55 @@
+<div class="form" *ngIf="showForm" [formGroup]="memberForm">
+    <label *ngIf="newMember" for="idNumber">Id Number</label>
+    <input *ngIf="newMember" type="text" id="idNumber" formControlName="idNumber"
+        [class.invalid-field]="memberForm.get('idNumber')?.invalid && memberForm.get('idNumber')?.touched">
+
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" formControlName="fullName"
+        [class.invalid-field]="memberForm.get('fullName')?.invalid && memberForm.get('fullName')?.touched">
+
+    <!-- <div formGroupName="address"> -->
+    <label for="city">City</label>
+    <input type="text" id="city" formControlName="city"
+        [class.invalid-field]="memberForm.get('city')?.invalid && memberForm.get('city')?.touched">
+
+    <label for="street">Street</label>
+    <input type="text" id="street" formControlName="street"
+        [class.invalid-field]="memberForm.get('street')?.invalid && memberForm.get('street')?.touched">
+
+    <label for="number">Number</label>
+    <input type="text" id="number" formControlName="number"
+        [class.invalid-field]="memberForm.get('number')?.invalid && memberForm.get('number')?.touched">
+    <!-- </div> -->
+
+    <label for="birthDate">Birth Date</label>
+    <input type="date" id="birthDate" formControlName="birthDate"
+        [class.invalid-field]="memberForm.get('birthDate')?.invalid && memberForm.get('birthDate')?.touched">
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" formControlName="phone">
+
+    <label for="mobilePhone">Mobile Phone</label>
+    <input type="tel" id="mobilePhone" formControlName="mobilePhone"
+        [class.invalid-field]="memberForm.get('mobilePhone')?.invalid && memberForm.get('mobilePhone')?.touched">
+
+    <label for="illnessDate">Illness Date</label>
+    <input type="date" id="illnessDate" formControlName="illnessDate">
+
+    <label for="recoveryDate">Recovery Date</label>
+    <input type="date" id="recoveryDate" formControlName="recoveryDate">
+    <!--  formArrayName="vaccinations"   [formGroupName]="i"-->
+    <div *ngFor="let vaccControl of vaccinations; let i = index" class="cacc-container">
+        <label for="vaccDate{{i}}">Vaccination {{i+1}} Date</label>
+        <input type="date" id="vaccDate{{i}}" formControlName="vaccDate{{i}}">
+
+        <label for="vaccManufacturer{{i}}">Vaccination {{i+1}} Manufacturer</label>
+        <select id="vaccManufacturer{{i}}" formControlName="vaccManufacturer{{i}}">
+            <option value="Moderna">Moderna</option>
+            <option value="Pfizer">Pfizer</option>
+            <option value="Johnson & Johnson">Johnson & Johnson</option>
+        </select>
+    </div>
+
+    <button (click)="saveMemberDetails()">Save</button>
+    <button (click)="closeForm()">Close</button>
+</div>
